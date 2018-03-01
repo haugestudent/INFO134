@@ -1,0 +1,26 @@
+body {
+  font-family: "Helvetica";
+
+}
+p {
+  margin: 20px;
+  padding: 10px;
+  background-color: #479e6e;
+  color: white;
+  font-size: 20px;
+  width: 900px;
+}
+
+h2 {
+  color: grey;
+  font-size: 30px;
+  margin: 20px;
+}
+
+button {
+  padding-left: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  height: 30px;
+  width: 260px;
+}
