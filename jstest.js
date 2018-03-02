@@ -37,6 +37,20 @@ for (i = 0; i < text.length; i++) {
   }
 }
 
+function listPissOgHandi() {
+var pluss_en = 1;
+obj = JSON.parse(text);
+
+document.getElementById("demo").innerHTML = "";
+for (i = 0; i < text.length; i++) {
+  // bruke regEX for å ha mange kriterier, og bruke boolean for hvert felt
+  // for å kunne kombinere de ulike som er valgt
+  if (obj.entries[i].pissOnly == true)&&(obj.entries[i].rullestol == true) {
+  document.getElementById("demo").innerHTML += (i+pluss_en) + " " + obj.entries[i].plassering + "<br>";
+   }
+  }
+}
+
 function listHandicap() {
 var pluss_en = 1;
 obj = JSON.parse(text);
