@@ -15,6 +15,7 @@ var text = '{"entries":[' +
 '{"Id":14,"plassering":"C. Sundtsgt","place":"Nonneseter North","Adresse":"C. Sundtsgt","pris": 0,"tid_hverdag":"Hele døgnet","tid_lørdag":"Hele døgnet","tid_søndag":"Hele døgnet", "rullestol": false , "stellerom": false , "pissOnly": true,"lat": 60.397359, "long": 5.313963 },' +
 '{"Id":15,"plassering":"Nordnes Skole","place":"Nordnes Skole","Adresse":"Nordnesparken 3","pris": 0,"tid_hverdag":"Hele døgnet","Tid_Lørdag":"Hele døgnet","Tid_Søndag":"Hele døgnet", "rullestol":false , "stellerom": false , "pissOnly": true, "lat": 60.397557, "long": 5.307858 }]}';
 
+// RT 2.3.2018
 function initMap() {
  var position[text.length];for (i = 0; i < text.length; i++) {
    position: position[i],
@@ -25,6 +26,7 @@ function initMap() {
     }
 }
 
+// RT 2.3.2018
 function putOnMap() {
  var marker[text.length];
   for (i = 0; i < text.length; i++) {
