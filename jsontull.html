@@ -1,79 +1,127 @@
 <!DOCTYPE html>
 <html>
+<body>
 <style>
+body {
+  margin-top: 100px;
+  font-family: "Helvetica";
+}
+button {
+  background:none;
+   color:inherit;
+   border:none;
+   padding:0;
+   font: inherit;
+   cursor: pointer;
+   line-height: 1.5;
+}
 
-  body {
-    font-size: 30px;
-    font-family: "Arial";
-  }
+#main {
+    width: 1400px;
+    margin: 0 auto;
+}
+#toalett    {
+  color: yellow;
+  border-radius: 25px;
+  padding: 30px;
+  height: 400px;
+  background: red;
+  float: left;
+}
 
-  p {
-    float: left;
-    padding: 5px;
-    width: 300px;
-    background-color: #3acaba;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
+#detaljer  {
+  font-size: 19px;
+  border-radius: 25px;
+  padding: 30px;
+  margin-left: 350px;
+  background-color: blue;
+  height: 400px;
+  color: white;
 
-  button.link {
-    font-size: 20px;
-    background:none;
-    border:none;
-  }
-  #list {
-    margin-left: 40px;
-    width: 600px;
-    background-color: #dcdcdc;
-  }
+}
 
 </style>
 
-<body>
-
-<h2>List of names</h2>
-
-<p id="people"></p>
-<p id="list"></p>
+<div id = "main">
+  <div id="toalett"></div>
+  <div id="detaljer"></div>
+</div>
 
 <script>
-var text = '{"person":[' +
-'{"firstName":"Harry","lastName":"Bald","address":"downing str 5" },' +
-'{"firstName":"John","lastName":"Elton","address":"bourbon str 66" },' +
-'{"firstName":"Per","lastName":"Fitzgerald","address":"Park ave 96" },' +
-'{"firstName":"Lars","lastName":"Kanutsen","address":"Herring str ni" },' +
-'{"firstName":"Freddy","lastName":"Krueger","address":"elm str 10" }]}';
+var text = '{"entries":[' +
+'{"Id":1,"plassering":"Nonneseter Sør","place":"Nonneseter South","adresse":"Lungegårdskaien","pris": 12,"tid_hverdag":"07:00-23:15","tid_lørdag":"07:00-23:15","tid_søndag":"07:00-23:15", "rullestol": true , "stellerom": false , "pissOnly": false,"lat": 60.388076, "long": 5.334937 },' +
+'{"Id":2,"plassering":"Nonneseter Nord","place":"Nonneseter North","adresse":"Østre Strømkai","pris": 12,"tid_hverdag":"05:30-23:50","tid_lørdag":"07:00-23:15","tid_søndag":"Stengt", "rullestol": true , "stellerom": false , "pissOnly": false,"lat": 60.388871, "long": 5.334079 },' +
+'{"Id":3,"plassering":"Skyss Kundesenter","place":"Skyss Customer Service","adresse":"Østre Strømkai","pris": 12,"tid_hverdag":"09:00-17:00","tid_lørdag":"09:00-15:00","tid_søndag":"Stengt", "rullestol": true , "stellerom": false , "pissOnly": false,"lat": 60.388868, "long": 5.334079 },' +
+'{"Id":4,"plassering":"Jernbanestasjonen","place":"Railway Station","adresse":"Strømgaten 4","pris": 10,"tid_hverdag":"07:00-23:00","tid_lørdag":"07:00-23:00","tid_søndag":"07:00-23:00", "rullestol": false , "stellerom": false , "pissOnly": false,"lat": 60.39041, "long": 5.332995 },' +
+'{"Id":5,"plassering":"Mathallen","place":"Fish marked","adresse":"Strandkaien 3","pris": 10,"tid_hverdag":"09:00-23:00","tid_lørdag":"08:30-22:00","tid_søndag":"08:30-22:00", "rullestol": true , "stellerom": true , "pissOnly": false,"lat": 60.39041, "long": 5.324099 },' +
+'{"Id":6,"plassering":"Strandkaiterminalen","place":"Strandkai boat terminal","adresse":"Strandkaien","pris": 10,"tid_hverdag":"08:00-18:00","tid_lørdag":"08:00-18:00","tid_søndag":"08:00-18:00", "rullestol": true , "stellerom": false , "pissOnly": false,"lat": 60.395432, "long": 5.321034 },' +
+'{"Id":7,"plassering":"Bergen Kommune, Innbyggerservice","place":"Citizen Service Sentre","adresse":"Kaigaten 4","pris": 0,"tid_hverdag":"08:00-15:00","tid_lørdag":"Stengt","tid_søndag":"Stengt", "rullestol": true , "stellerom": false , "pissOnly": false,"lat": 60.3913929, "long": 5.326855 },' +
+'{"Id":8,"plassering":"Bergen Storsenter","place":"Bergen Storsenter","adresse":"Strømgaten 8","pris": 10,"tid_hverdag":"09:00-21:00","tid_lørdag":"09:00-18:00","tid_søndag":"Stengt", "rullestol": true , "stellerom": true , "pissOnly": false,"lat": 60.3891794, "long": 5.3305793 },' +
+'{"Id":9,"plassering":"Sundt Motehus","place":"Sundt Fashion House","adresse":"Torgalmenningen 14","pris": 10,"tid_hverdag":"09:00-21:00","tid_lørdag":"09:00-18:00","tid_søndag":"Stengt", "rullestol": true , "stellerom": true , "pissOnly": false,"lat": 60.392209, "long": 5.324011 },' +
+'{"Id":10,"plassering":"Xhibition","place":"Xhibition","adresse":"Småstrandgaten 3","pris": 10,"tid_hverdag":"09:00-20:00","tid_lørdag":"09:00-18:00","tid_søndag":"Stengt", "rullestol": true , "stellerom": true , "pissOnly": false,"lat": 60.3928444, "long": 5.3239541 },' +
+'{"Id":11,"plassering":"Galleriet","place":"Galleriet","adresse":"Torgalmenningen 8","pris": 10,"tid_hverdag":"09:00-21:00","tid_lørdag":"09:00-18:00","tid_søndag":"Stengt", "rullestol": true , "stellerom": true , "pissOnly": false,"lat": 60.3947371, "long": 5.3243561 },' +
+'{"Id":12,"plassering":"Kløverhuset","place":"Kløverhuset","adresse":"Strandgaten 13-15","pris": 10,"tid_hverdag":"10:00-20:00","tid_lørdag":"10:00-18:00","tid_søndag":"Stengt", "rullestol": true , "stellerom": true , "pissOnly": false,"lat": 60.3944194, "long": 5.3205649 },' +
+'{"Id":13,"plassering":"Bryggen Besøkssenter","place":"Bryggen Visitor Centre","adresse":"Jacobsfjorden Bryggen","pris": 0,"tid_hverdag":"09:00-18:00","tid_lørdag":"09:00-18:00","tid_søndag":"Stengt", "rullestol": true , "stellerom": false , "pissOnly": false,"lat": 60.3974108, "long": 5.313963 },' +
+'{"Id":14,"plassering":"C. Sundtsgt","place":"Nonneseter North","adresse":"C. Sundtsgt","pris": 0,"tid_hverdag":"Hele døgnet","tid_lørdag":"Hele døgnet","tid_søndag":"Hele døgnet", "rullestol": false , "stellerom": false , "pissOnly": true,"lat": 60.397359, "long": 5.313963 },' +
+'{"Id":15,"plassering":"Nordnes Skole","place":"Nordnes Skole","adresse":"Nordnesparken 3","pris": 0,"tid_hverdag":"Hele døgnet","Tid_Lørdag":"Hele døgnet","Tid_Søndag":"Hele døgnet", "rullestol":false , "stellerom": false , "pissOnly": true, "lat": 60.397557, "long": 5.307858 }]}';
+
 
 obj = JSON.parse(text);
 
-for (i = 0; i < obj.person.length; i++) {
-  document.getElementById("people").innerHTML +=  "<button class=\"link\" id =\"buttonId" + i + "\">" + obj.person[i].firstName + "</button>";
+for (i = 0; i < obj.entries.length; i++) {
+  document.getElementById("toalett").innerHTML +=  "<button class=\"link\" id =\"buttonId" + i + "\">" + obj.entries[i].plassering + "</button><br>";
 }
 
-var button0 = document.getElementById("buttonId0");
-var button1 = document.getElementById("buttonId1");
-var button2 = document.getElementById("buttonId2");
-var button3 = document.getElementById("buttonId3");
-var button4 = document.getElementById("buttonId4");
+for (var i = 0; i < obj.entries.length; ++i) {
+    this["button"+i] = document.getElementById("buttonId" + i);
+}
+
 
 button0.onclick = function(){
-  document.getElementById("list").innerHTML = obj.person[0].firstName + " " + obj.person[0].lastName + " " + obj.person[0].address;
+  document.getElementById("detaljer").innerHTML = obj.entries[0].plassering + " " + obj.entries[0].adresse + ", " + obj.entries[0].pris + ", " + obj.entries[0].tid_hverdag + ", " + obj.entries[0].tid_lørdag + ", " + obj.entries[0].tid_søndag + ", " + obj.entries[0].rullestol + "," + obj.entries[0].stellerom + "," + obj.entries[0].pissOnly;
 }
 button1.onclick = function(){
-  document.getElementById("list").innerHTML = obj.person[1].firstName + " " + obj.person[1].lastName + " " + obj.person[1].address;
+  document.getElementById("detaljer").innerHTML = obj.entries[1].plassering + " " + obj.entries[1].adresse + ", " + obj.entries[1].pris + ", " + obj.entries[1].tid_hverdag + ", " + obj.entries[1].tid_lørdag + ", " + obj.entries[1].tid_søndag + ", " + obj.entries[1].rullestol + "," + obj.entries[1].stellerom + "," + obj.entries[1].pissOnly;
 }
 button2.onclick = function(){
-    document.getElementById("list").innerHTML = obj.person[2].firstName + " " + obj.person[2].lastName + " " + obj.person[2].address;
+  document.getElementById("detaljer").innerHTML = obj.entries[2].plassering + " " + obj.entries[2].adresse + ", " + obj.entries[2].pris + ", " + obj.entries[2].tid_hverdag + ", " + obj.entries[2].tid_lørdag + ", " + obj.entries[2].tid_søndag + ", " + obj.entries[2].rullestol + "," + obj.entries[2].stellerom + "," + obj.entries[2].pissOnly;
 }
 button3.onclick = function(){
-  document.getElementById("list").innerHTML = obj.person[3].firstName + " " + obj.person[3].lastName + " " + obj.person[3].address;
+  document.getElementById("detaljer").innerHTML = obj.entries[3].plassering + " " + obj.entries[3].adresse + ", " + obj.entries[3].pris + ", " + obj.entries[3].tid_hverdag + ", " + obj.entries[3].tid_lørdag + ", " + obj.entries[3].tid_søndag + ", " + obj.entries[3].rullestol + "," + obj.entries[3].stellerom + "," + obj.entries[3].pissOnly;
 }
 button4.onclick = function(){
-  document.getElementById("list").innerHTML = obj.person[4].firstName + " " + obj.person[4].lastName + " " + obj.person[4].address;
+  document.getElementById("detaljer").innerHTML = obj.entries[4].plassering + " " + obj.entries[4].adresse + ", " + obj.entries[4].pris + ", " + obj.entries[4].tid_hverdag + ", " + obj.entries[4].tid_lørdag + ", " + obj.entries[4].tid_søndag + ", " + obj.entries[4].rullestol + "," + obj.entries[4].stellerom + "," + obj.entries[4].pissOnly;
 }
-
+button5.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[5].plassering + " " + obj.entries[5].adresse + ", " + obj.entries[5].pris + ", " + obj.entries[5].tid_hverdag + ", " + obj.entries[5].tid_lørdag + ", " + obj.entries[5].tid_søndag + ", " + obj.entries[5].rullestol + "," + obj.entries[5].stellerom + "," + obj.entries[5].pissOnly;
+}
+button6.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[6].plassering + " " + obj.entries[6].adresse + ", " + obj.entries[6].pris + ", " + obj.entries[6].tid_hverdag + ", " + obj.entries[6].tid_lørdag + ", " + obj.entries[6].tid_søndag + ", " + obj.entries[6].rullestol + "," + obj.entries[6].stellerom + "," + obj.entries[6].pissOnly;
+}
+button7.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[7].plassering + " " + obj.entries[7].adresse + ", " + obj.entries[7].pris + ", " + obj.entries[7].tid_hverdag + ", " + obj.entries[7].tid_lørdag + ", " + obj.entries[7].tid_søndag + ", " + obj.entries[7].rullestol + "," + obj.entries[7].stellerom + "," + obj.entries[7].pissOnly;
+}
+button8.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[8].plassering + " " + obj.entries[8].adresse + ", " + obj.entries[8].pris + ", " + obj.entries[8].tid_hverdag + ", " + obj.entries[8].tid_lørdag + ", " + obj.entries[8].tid_søndag + ", " + obj.entries[8].rullestol + "," + obj.entries[8].stellerom + "," + obj.entries[8].pissOnly;
+}
+button9.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[9].plassering + " " + obj.entries[9].adresse + ", " + obj.entries[9].pris + ", " + obj.entries[9].tid_hverdag + ", " + obj.entries[9].tid_lørdag + ", " + obj.entries[9].tid_søndag + ", " + obj.entries[9].rullestol + "," + obj.entries[9].stellerom + "," + obj.entries[9].pissOnly;
+}
+button10.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[10].plassering + " " + obj.entries[10].adresse + ", " + obj.entries[10].pris + ", " + obj.entries[10].tid_hverdag + ", " + obj.entries[10].tid_lørdag + ", " + obj.entries[10].tid_søndag + ", " + obj.entries[10].rullestol + "," + obj.entries[10].stellerom + "," + obj.entries[10].pissOnly;
+}
+button11.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[11].plassering + " " + obj.entries[11].adresse + ", " + obj.entries[11].pris + ", " + obj.entries[11].tid_hverdag + ", " + obj.entries[11].tid_lørdag + ", " + obj.entries[11].tid_søndag + ", " + obj.entries[11].rullestol + "," + obj.entries[11].stellerom + "," + obj.entries[11].pissOnly;
+}
+button12.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[12].plassering + " " + obj.entries[12].adresse + ", " + obj.entries[12].pris + ", " + obj.entries[12].tid_hverdag + ", " + obj.entries[12].tid_lørdag + ", " + obj.entries[12].tid_søndag + ", " + obj.entries[12].rullestol + "," + obj.entries[12].stellerom + "," + obj.entries[12].pissOnly;
+}
+button13.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[13].plassering + " " + obj.entries[13].adresse + ", " + obj.entries[13].pris + ", " + obj.entries[13].tid_hverdag + ", " + obj.entries[13].tid_lørdag + ", " + obj.entries[13].tid_søndag + ", " + obj.entries[13].rullestol + "," + obj.entries[13].stellerom + "," + obj.entries[13].pissOnly;
+}
+button14.onclick = function(){
+  document.getElementById("detaljer").innerHTML = obj.entries[14].plassering + " " + obj.entries[14].adresse + ", " + obj.entries[14].pris + ", " + obj.entries[14].tid_hverdag + ", " + obj.entries[14].tid_lørdag + ", " + obj.entries[14].tid_søndag + ", " + obj.entries[14].rullestol + "," + obj.entries[14].stellerom + "," + obj.entries[14].pissOnly;
+}
 </script>
 
 </body>
