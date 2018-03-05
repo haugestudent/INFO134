@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+  body {
+    font-size: 30px;
+    font-family: "Arial";
+  }
+
+  p {
+    float: left;
+    padding: 5px;
+    width: 300px;
+    background-color: #3acaba;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  button.link {
+    font-size: 20px;
+    background:none;
+    border:none;
+  }
+  #list {
+    margin-left: 40px;
+    width: 600px;
+    background-color: #dcdcdc;
+  }
+
+</style>
+
+<body>
+
+<h2>List of names</h2>
+
+<p id="people"></p>
+<p id="list"></p>
+
+<script>
+var text = '{"person":[' +
+'{"firstName":"Harry","lastName":"Bald","address":"downing str 5" },' +
+'{"firstName":"John","lastName":"Elton","address":"bourbon str 66" },' +
+'{"firstName":"Per","lastName":"Fitzgerald","address":"Park ave 96" },' +
+'{"firstName":"Lars","lastName":"Kanutsen","address":"Herring str ni" },' +
+'{"firstName":"Freddy","lastName":"Krueger","address":"elm str 10" }]}';
+
+obj = JSON.parse(text);
+
+for (i = 0; i < obj.person.length; i++) {
+  document.getElementById("people").innerHTML +=  "<button class=\"link\" id =\"buttonId" + i + "\">" + obj.person[i].firstName + "</button>";
+}
+
+var button0 = document.getElementById("buttonId0");
+var button1 = document.getElementById("buttonId1");
+var button2 = document.getElementById("buttonId2");
+var button3 = document.getElementById("buttonId3");
+var button4 = document.getElementById("buttonId4");
+
+button0.onclick = function(){
+  document.getElementById("list").innerHTML = obj.person[0].firstName + " " + obj.person[0].lastName + " " + obj.person[0].address;
+}
+button1.onclick = function(){
+  document.getElementById("list").innerHTML = obj.person[1].firstName + " " + obj.person[1].lastName + " " + obj.person[1].address;
+}
+button2.onclick = function(){
+    document.getElementById("list").innerHTML = obj.person[2].firstName + " " + obj.person[2].lastName + " " + obj.person[2].address;
+}
+button3.onclick = function(){
+  document.getElementById("list").innerHTML = obj.person[3].firstName + " " + obj.person[3].lastName + " " + obj.person[3].address;
+}
+button4.onclick = function(){
+  document.getElementById("list").innerHTML = obj.person[4].firstName + " " + obj.person[4].lastName + " " + obj.person[4].address;
+}
+
+</script>
+
+</body>
+</html>
