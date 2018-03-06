@@ -5,6 +5,10 @@
 body {
   margin-top: 100px;
   font-family: "Helvetica";
+  background-image: url("flyfoto.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.95;
 }
 button {
   background:none;
@@ -21,12 +25,15 @@ button {
   border: 0;
 }
 #klokke {
-  font-size: 20px;
-  color: indigo;
-  text-align: right;
+  font-size: 30px;
+  color: white;
+  text-align: center;
   padding-right: 50px;
   border-color: black;
   border-width: 1px;
+  background-color: #5e9649;
+  border-radius: 45px;
+  margin-top: 50px;
 }
 #main {
     width: 800px;
@@ -89,7 +96,6 @@ var text = '{"entries":[' +
 '{"Id":14,"plassering":"C. Sundtsgt","place":"Nonneseter North","adresse":"C. Sundtsgt","pris": 0,"tid_hverdag":"Hele døgnet","tid_lørdag":"Hele døgnet","tid_søndag":"Hele døgnet", "rullestol": "Nei" , "stellerom": "Nei" , "pissOnly": "Ja","lat": 60.397359, "long": 5.313963 },' +
 '{"Id":15,"plassering":"Nordnes Skole","place":"Nordnes Skole","adresse":"Nordnesparken 3","pris": 0,"tid_hverdag":"Hele døgnet","tid_lørdag":"Hele døgnet","tid_søndag":"Hele døgnet", "rullestol":"Nei" , "stellerom": "Nei" , "pissOnly": "Ja", "lat": 60.397557, "long": 5.307858 }]}';
 
-//document.getElementById("main").innerHTML = Date();
 
 obj = JSON.parse(text);
 
@@ -105,7 +111,7 @@ var d = new Date();
 var h = d.getHours();
 var m = (d.getMinutes()<10?'0':'') + d.getMinutes();
 
-document.getElementById("klokke").innerHTML += "Nå er klokken: " + h + ":" + m;
+document.getElementById("klokke").innerHTML += "Klokken er nå: " + h + ":" + m;
 
 
 // Lage klikkbare knapper
