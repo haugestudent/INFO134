@@ -69,14 +69,48 @@ img {
   border-radius: 30px;
 
 }
+.symboler {
+  margin-top: 25px;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content:space-around;
+}
+
+.symboler a {
+  flex-grow: 1;
+  flex-basis: 125px;
+  max-width: 300px;
+  margin: 5px;
+}
+
+#skilt img {
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+}
+
+
 
 </style>
 
 <div id = "main">
   <div id="toalett"></div>
-  <div id="detaljer"><img src="toalett_skilt.png"></div>
-  <div id="klokke"></div>
+  <div id="detaljer"><img src="toalett.jpeg"></div>
+
+
+  <div class="symboler"></div>
+    <div id="skilt">
+
+      <div id="rullestol"></div>
+      <div id="stellerom"></div>
+
+<div id="pissoir"></div>
+    </div>
 </div>
+<div id="klokke"></div>
+
 
 <script>
 var text = '{"entries":[' +
@@ -99,13 +133,48 @@ var text = '{"entries":[' +
 
 obj = JSON.parse(text);
 
-// Lager en button for hver rad i entries
-for (i = 0; i < obj.entries.length; i++) {
-  document.getElementById("toalett").innerHTML +=  "<button class=\"link\" id =\"buttonId" + i + "\">" + obj.entries[i].plassering + "</button><br>";
+
+function finnAlleToalett() {
+  // Lager en button for hver rad i entries
+  for (i = 0; i < obj.entries.length; i++) {
+    document.getElementById("toalett").innerHTML +=  "<button class=\"link\" id =\"buttonId" + i + "\">" + obj.entries[i].plassering + "</button><br>";
+  }
+  for (var i = 0; i < obj.entries.length; ++i) {
+      this["button"+i] = document.getElementById("buttonId" + i);
+  }
 }
-for (var i = 0; i < obj.entries.length; ++i) {
-    this["button"+i] = document.getElementById("buttonId" + i);
+
+function finnStellerom() {
+  // Lager en button for hver rad i entries
+  for (i = 0; i < obj.entries.length; i++) {
+    document.getElementById("toalett").innerHTML +=  "<button class=\"link\" id =\"buttonId" + i + "\">" + obj.entries[i].plassering + "</button><br>";
+  }
+  for (var i = 0; i < obj.entries.length; ++i) {
+      this["button"+i] = document.getElementById("buttonId" + i);
+  }
 }
+
+function finnRullestol() {
+  // Lager en button for hver rad i entries
+  for (i = 0; i < obj.entries.length; i++) {
+    document.getElementById("toalett").innerHTML +=  "<button class=\"link\" id =\"buttonId" + i + "\">" + obj.entries[i].plassering + "</button><br>";
+  }
+  for (var i = 0; i < obj.entries.length; ++i) {
+      this["button"+i] = document.getElementById("buttonId" + i);
+  }
+}
+function finnPissoir() {
+  // Lager en button for hver rad i entries
+  for (i = 0; i < obj.entries.length; i++) {
+    document.getElementById("toalett").innerHTML +=  "<button class=\"link\" id =\"buttonId" + i + "\">" + obj.entries[i].plassering + "</button><br>";
+  }
+  for (var i = 0; i < obj.entries.length; ++i) {
+      this["button"+i] = document.getElementById("buttonId" + i);
+  }
+}
+
+
+finnAlleToalett();
 
 var d = new Date();
 var h = d.getHours();
@@ -114,7 +183,7 @@ var m = (d.getMinutes()<10?'0':'') + d.getMinutes();
 document.getElementById("klokke").innerHTML += "Klokken er nå: " + h + ":" + m;
 
 
-// Lage klikkbare knapper
+// Lage knapper
 function klikkbar(u) {
   this["button"+u].onclick = function() {
     document.getElementById("detaljer").innerHTML = "<div id=\"storSkrift\">" + obj.entries[u].plassering + "<br><br></div>Adresse: " + obj.entries[u].adresse + "<br><br>Pris: " + obj.entries[u].pris + ",-<br><br> <b>Åpningstider:</b> <hr>Hverdager: " + obj.entries[u].tid_hverdag + "<br>Lørdager " + obj.entries[u].tid_lørdag + "<br>Søndager:  " + obj.entries[u].tid_søndag + "<hr>Egnet for rullestol: " + obj.entries[u].rullestol + "<br>Stellerom: " + obj.entries[u].stellerom + "<br> Kun pissoir: " + obj.entries[u].pissOnly;
@@ -126,7 +195,7 @@ for ( var i = 0; i < obj.entries.length; i++ ) {
   klikkbar(i);
 }
 
-
+document.getElementById("skilt").innerHTML += "<img src=\"ingenfilter.png\">" + "<img src=\"disabled_free.png\">" + "<img src=\"stellerom.jpg\">" + "<img src=\"pissoir.jpg\">";
 
 </script>
 
