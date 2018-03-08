@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="nb">
+  <head>  <!-- meta informasjon -->
+	
+   
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/stil_kart.css">
+    	<title>Offentlige toaletter i Bergen / public toilets in Bergen</title> 
+
+	<!-- JAVASCRIPT -->
+	<script src="js/Googlemap.js"  charset="UTF-8"></script> 
+	
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEp12QWErrU18CaC2s7_ykjsKaHe-Eu68&callback=initMap"> 
+	</script>
+  </head>
+
+  <body onload="visTid()">
+  
+    <p>
+        <center><h1>Offentlige toaletter i Bergen / public toilets in Bergen</h1></center>
+   </p>
+   <div id="klokke">.</div>
+	
+	<div class="flex-container">
+		<div id="toalett">OVERSIKT<br>
+		
+		</div>
+		<div><div id="map"></div></div>
+		<div>INFORMASJON</div>  
+	</div>
+
+  </body>
+
+</html>

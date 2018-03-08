@@ -1,0 +1,58 @@
+﻿body {
+  margin-top: 30px;
+  font-family: "Helvetica";
+  background-image: url("img/flyfoto.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.95;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+	font-family: verdana;
+    font-size: 34px;
+	line-height: normal;
+}
+
+h2 {
+    color: blue;
+    text-align: center;
+	font-size: 18px;
+	line-height: normal;
+}
+
+p {
+    font-family: verdana;
+    font-size: 32px;
+}
+
+#map {
+	border: 3px;
+	border-color: red;
+	height: 400px;
+	width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.flex-container > div {
+  background-color: #a7cdf2;
+  width: 400px;
+  margin: 3px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 26px;
+  color: blue;
+}
+
+#klokke {
+	text-align: center;
+	font-size: 24px;
+}
+
+
