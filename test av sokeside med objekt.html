@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</HEAD>
+<body>
+
+<h3>SØKESIDE</h3>
+
+KJØNN    <input type="text" id="navn" value="">M/K<br>
+ÅPEN NÅ <input type="text" id="open" value="">J/N<br>
+RULLESTOL <input type="text" id="handi" value="">J/N<br>
+PISSOIR <input type="text" id="piss" value="">J/N<br>
+MAKS PRIS <input type="text" id="mPris" value=""><br>
+
+<p>Klikk søk for å søke når du har skrevet alle kriteriene.</p>
+
+<button onclick="ViseSoek()">SØK</button>
+
+<p id="visning">DU SØKTE PÅ: </p>
+
+<script>
+
+var sokeKriterier = {
+"KJØNN": document.getElementById("navn").value,
+"ÅPEN": document.getElementById("open").value,
+"RULLESTOL": document.getElementById("handi").value,
+"PISSOIR": document.getElementById("piss").value,
+"MPRIS" : document.getElementById("mPris").value
+}
+
+function ViseSoek() {
+    
+    document.getElementById("visning").innerHTML += "<br> KJØNN: " + sokeKriterier.KJØNN + "<br>  ÅPEN NÅ: " + sokeKriterier.ÅPEN + "<br>  RULLESTOL: " 
+	+ sokeKriterier.RULLESTOL + "<br>  KUN PISSOIR: " + sokeKriterier.PISSOIR + "<br>  Maks pris: " + sokeKriterier.MPRIS; 
+}
+
+</script>
+
+</body>
+</html>
