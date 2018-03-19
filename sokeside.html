@@ -1,25 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<body>
-<h1>S�KESIDE FOR TOALETTER</h1><br>
 
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<h1>SØKESIDE FOR TOALETTER</h1><br>
+
+<h2>AVANSERT SØK</h2>
 <form action="separat.html">
-  Sted:
-  <input type="text" name="sted" value="Nonneseter">
- 
-  Rullstol:
-  <input type="text" name="rullestol" value="Ja">
-  <br><br>
+Rullstol:
+  <input type="checkbox" name="rullestol" value="Ja">
+  
   Pissoir:
-  <input type="text" name="pissoir" value="Ja">
+  <input type="checkbox" name="pissoir" value="Ja">
  
   Stellerom:
-  <input type="text" name="stellerom" value="Ja">
+  <input type="checkbox" name="stellerom" value="Ja">
   <br><br>
-  <input type="submit" value="S�K">
+  
+  Åpen nå?:
+  <input type="checkbox" name="aapennaa" value="Ja">
+  
+  Gratis?:
+  <input type="checkbox" name="gratis" value="Ja">
+   <br><br>
+  
+  <input type="submit" value="avansert SØK">
 </form> 
+<br><br>
 
-<p>Ved � klikke S�K sndes du til oversikten, som viser steder som passer til s�ket.</p>
+ <h2>HURTIGSØK</h2>
+
+<form action="separat.html">
+HURTIGSØK:
+  <input type="text" name="hurtig">
+  <br><br>  
+  
+  <input type="submit" value="HURTIGSØK">
+</form> 
+	
+<p>Ved å klikke "avansert SØK" / "HURTIGSØK" sendes du til oversikten, som viser steder som passer til søket.</p>
 
 </body>
 </html>

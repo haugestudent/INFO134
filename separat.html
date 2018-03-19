@@ -1,46 +1,36 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="separat.css">
-<script src="separat.js"></script>
+<link rel="stylesheet" type="text/css" href="css/separat.css">
+<script src="js/separat.js"></script>
+<script src="js/Googlemap.js" charset="UTF-8"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEp12QWErrU18CaC2s7_ykjsKaHe-Eu68&callback=initMap"></script>
 <meta charset="utf-8">
 
-
-<title>Toaettoversikt med css og js i seperate filer </title>
+<title> Oversikt over offentlige toaletter i Bergen </title>
 </head>
 <body>
-<script> visKlokke() </script>
+<div id="klokke"></div>
 
-
-<div id = "main">
-  <div id="toalett"></div>
-  <div id="detaljer"><img src="bilder/toalett.jpeg"></div>
   <div id="skilt">
     <input type="image" src="bilder/visalt.png" onclick="return finnAlleToalett();">
     <input type="image" src="bilder/rullestol_free.png" onclick="return finnRullestol()";>
     <input type="image" src="bilder/stellerom.jpg" onclick="return finnStellerom()";>
     <input type="image" src="bilder/pissoir.jpg" onclick="return finnPissoir()";>
   </div>
-  <div id="map">
-     <script src="Googlemap.js" charset="UTF-8"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEp12QWErrU18CaC2s7_ykjsKaHe-Eu68&callback=initMap">
-	</script>
-    </div>
+  
+  <div id="toalett"></div>
+  
+  <div id="detaljer"><img src="bilder/toalett.jpeg"></div>  
+  
+  <div id="map">KARTET</div>
+
 
 <script> finnAlleToalett() </script>
 <script> visAlleDetaljer() </script>
 
-  <div class="symboler"></div>
-    <div id="rullestol"></div>
-    <div id="stellerom"></div>
-
-<div id="pissoir"></div>
-    </div>
-</div>
-<div id="klokke"></div>
-
-
-
+<script> visKlokke() </script>
+<script> visSok() </script>
 
 
 	</body>
