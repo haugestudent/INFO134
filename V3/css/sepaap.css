@@ -1,0 +1,128 @@
+@media only screen and (max-width: 768px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+
+
+body {
+  margin-top: 10px;
+  font-family: "Helvetica";
+  background-image: url("bilder/bergenby.jpeg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+button {
+  background:none;
+   color:inherit;
+   border:none;
+   padding:0;
+   font: inherit;
+   cursor: pointer;
+   line-height: 1.5;
+}
+h2 {
+  color: yellow;
+}
+#storSkrift {
+  font-size: 28px;
+  color: cyan;
+  border: 0;
+}
+#klokke {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding-right: 0px;
+  border-color: white;
+  border-width: 1px;
+  background-color: #0000ff;
+  border-radius: 45px;
+  margin-top: 5px;
+  margin-right: 170px;
+  margin-left: 45px;
+}
+#main {
+    width: 1200px;
+
+    margin-left: 45px;
+}
+#toalett    {
+  color: white;
+  border-radius: 50px 0px 0px 50px;
+  padding: 30px;
+  height: 370px;
+  width: 210px;
+  background: red;
+  float: left;
+  margin-bottom: 25px;
+
+}
+
+#detaljer  {
+  width: 260px;
+  height: 370px;
+  font-size: 16px;
+  margin-bottom: 25px;
+  padding: 30px;
+  background-color: blue;
+  color: white;
+  float: left;
+}
+#skilt {
+  border-radius: 0px 25px 25px 0px;
+  background-color: red;
+  height: 430px;
+  width: 70px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#map {
+ height: 430px;
+ width: 380px;
+ border: 3px;
+ border-color: red;
+ text-align: center;
+ border-radius: 50px;
+
+}
+
+.link:hover {
+  color: yellow;
+}
+
+img {
+  width: 80%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+
+input {
+  width: 90%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-left: 5px;
+}
+.symboler {
+  margin-top: 25px;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content:space-around;
+}
+
+.symboler a {
+  flex-grow: 1;
+  flex-basis: 125px;
+  max-width: 300px;
+  margin: 5px;
+}
