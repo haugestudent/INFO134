@@ -1,0 +1,28 @@
+<head>
+<meta charset="utf-8">
+</head>
+
+<body>
+
+<p id="element"></p>
+
+
+<script>
+
+
+// Replace ./data.json with your JSON feed
+fetch('https://hotell.difi.no/api/json/bergen/lekeplasser?').then(response => {
+  return response.json();
+}).then(data => {
+  // Work with JSON data here
+  for (var i = 0; i < data.entries.length; i++) {
+  console.log(data);
+  document.getElementById("element").innerHTML += data.entries[i].id + ':' + data.entries[i].navn + ', '+ data.entries[i].latitude + ', '+ data.entries[i].longitude + "<br>";
+  }
+}).catch(err => {
+  // Do something for an error here
+});
+
+</script>
+
+</body>
