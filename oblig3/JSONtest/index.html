@@ -19,7 +19,7 @@ request.onload = function () {
 	var data = JSON.parse(this.response);
 
 	for (var i = 0; i < data.length; i++) {
-		document.getElementById("element").innerHTML += data[i].name + ' is a ' + data[i].race + '.'+"<br>";
+		document.getElementById("element").innerHTML += data[i].name + ' er en ' + data[i].race + '.'+"<br>";
 		
 	}
 }
