@@ -1,0 +1,31 @@
+<head>
+<meta charset="utf-8">
+</head>
+
+<body>
+
+<p id="element"></p>
+
+
+<script>
+
+
+var request = new XMLHttpRequest();
+
+request.open('GET', 'data.json', true);
+
+request.onload = function () {
+	// begin accessing JSON data here
+	var data = JSON.parse(this.response);
+
+	for (var i = 0; i < data.length; i++) {
+		document.getElementById("element").innerHTML += data[i].name + ' is a ' + data[i].race + '.'+"<br>";
+		
+	}
+}
+
+request.send();
+
+</script>
+
+</body>
