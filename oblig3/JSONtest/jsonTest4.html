@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<div class="flex-container">
+<div id="id01"></div>
+<div id="map"></div>
+</div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        myFunction(myArr);
+		myMap(myArr);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i < arr.entries.length; i++) {
+        out += arr.entries[i].id+ '  ' + arr.entries[i].navn + '           LAT: ' + arr.entries[i].latitude + '       LONG: ' + arr.entries[i].longitude + ' </a><br>';
+    }
+    document.getElementById("id01").innerHTML = out;
+}
+
+function myMap(liste) {
+var mapProp= {
+    center:new google.maps.LatLng(60.3924,5.322),
+    zoom:13
+};
+for (var i = 0; i < liste.entries.length; i++) {
+}
+var map=new google.maps.Map(document.getElementById("map"),mapProp);
+}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEp12QWErrU18CaC2s7_ykjsKaHe-Eu68&callback=myMap"></script>
+</body>
+</html>
