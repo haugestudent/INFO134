@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>AVANSERT HURTIGSØK DEMO</p>
+
+
+
+<p id="demo"></p>
+
+<script>
+var sok = prompt("Skriv inn hurtigsøk, fritekst og/eller på format 'felt:data'", "");
+sokeObjekt();
+
+function sokeObjekt() {
+    var obj = "{<br>";
+    var res = sok.split(" ");
+    for (i=0; i<res.length; i++) {
+		if (res[i].includes(":")) {
+			// document.getElementById("demo").innerHTML += res[i]+"<br>";
+			obj += res[i]+",<br>";
+		}
+		else {
+			// document.getElementById("demo").innerHTML += "fritekst:" +res[i]+"<br>";
+			obj +="fritekst:" +res[i]+",<br>"
+		}
+	}
+	obj += "}";
+	document.getElementById("demo").innerHTML = obj;
+}
+</script>
+
+</body>
+</html>
