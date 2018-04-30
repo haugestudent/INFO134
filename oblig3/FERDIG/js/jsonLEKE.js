@@ -1,6 +1,6 @@
 // GENERELL FUNKSJON SOM HENTER JSON og SOM KAN BRUKES TIL ALLE DELENE SOM BRUKER JSON-DATA
 var vis = [];		// oppdateres for å "sile ut" data som skal vises
-for (j=0; j<100; j++) { if ((j%4==0)&&(j!=0)) { vis[j]=true;} }
+for (j=0; j<100; j++) { vis[j]=true; } // Alle elemsnter skal vises initielt
 var map;
 var url = "https://hotell.difi.no/api/json/bergen/lekeplasser?";	// URL for JSON-ressurs som skal brukes
 var myLatLng = {lat: 60.4020, lng: 5.358}; // setter senter av kartet
