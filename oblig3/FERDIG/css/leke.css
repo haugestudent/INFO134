@@ -1,0 +1,23 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.flex-container > div {
+  background-color: white;
+  width: 45%;
+  height: 500px;
+  margin: 5px;
+  text-align: left;
+  font-size: 12px;
+}
+
+.flex-container > #map {
+  background-color: #red;
+  width: 45%;
+  height: 500px;
+  margin: 5px;
+  text-align: center;
+  font-size: 14px;
+}
