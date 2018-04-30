@@ -1,6 +1,6 @@
 // GENERELL FUNKSJON SOM HENTER JSON og SOM KAN BRUKES TIL ALLE DELENE SOM BRUKER JSON-DATA
-var vis = [];		// oppdateres for Ã¥ "sile ut" data som skal vises
-for (j=0; j<100; j++) { vis[j]=true; } // Alle elemsnter skal vises initielt
+var vis = [];		// oppdateres for å "sile ut" data som skal vises
+for (j=0; j<100; j++) { if ((j%1==0)&&(j!=0)) { vis[j]=true;} }
 var map;
 var url = "https://hotell.difi.no/api/json/bergen/lekeplasser?";	// URL for JSON-ressurs som skal brukes
 var myLatLng = {lat: 60.4020, lng: 5.358}; // setter senter av kartet
@@ -13,7 +13,7 @@ var myLatLng = {lat: 60.4020, lng: 5.358}; // setter senter av kartet
 		});
 	}
     
-	// setter en Marker pÃ¥ kartet. @parametre: coordinate og ID (for label)
+	// setter en Marker på kartet. @parametre: coordinate og ID (for label)
 	function setMarker(coordinate, ID) {
 		var lab = ID.toString();
 		var marker = new google.maps.Marker({
@@ -23,7 +23,7 @@ var myLatLng = {lat: 60.4020, lng: 5.358}; // setter senter av kartet
 		});
 	}
 	
-	// setter en marker med valgt ikon pÃ¥ kartet (f.eks. favoritt eller senter)
+	// setter en marker med valgt ikon på kartet (f.eks. favoritt eller senter)
 	function setSpecialMarker(coordinate, ID, icon) {
 		var lab = ID.toString();
 		var marker = new google.maps.Marker({
@@ -33,6 +33,15 @@ var myLatLng = {lat: 60.4020, lng: 5.358}; // setter senter av kartet
 		icon: icon,
 		});
 	}
+	
+	
+	
+	function settForVisning () {
+	}
+	
+	function sokOgMarker (data, sokeobjekt) {
+	}
+	
 	
 	// funksjon som legger til visning av ett element i listen
 	function visListe(ID, navn, avstand) {
@@ -78,7 +87,7 @@ function IsJsonString(str) {
 
 }
 
-	// *** Hovedfunksjon *** for henting av data og visning; kaller bÃ¥de visListe() og setMarker()
+	// *** Hovedfunksjon *** for henting av data og visning; kaller både visListe() og setMarker()
 	function hentOgVis(url) {
 		// egen funksjon som leser JSON fra nett
 		function lesTekst(fil, callback) {
@@ -92,8 +101,8 @@ function IsJsonString(str) {
 				}
 			input.send();
 	}
-	// funksjon som gjÃ¸r tekst hentet fra nett til JSON-objekt og gÃ¥r igjennom denne
-	// og viser pÃ¥ listen ved bruk av egne funksjoner (visListe) og pÃ¥ kart (setMarker)
+	// funksjon som gjør tekst hentet fra nett til JSON-objekt og går igjennom denne
+	// og viser på listen ved bruk av egne funksjoner (visListe) og på kart (setMarker)
 	lesTekst(url, function(tekst){
 		if (IsJsonString(tekst)) { 	
 			data = JSON.parse(tekst);
