@@ -1,0 +1,57 @@
+.flex-container {
+display: flex;
+flex-wrap: wrap;
+background-color: beige;
+font-family: "Helvetica";
+
+}
+
+.flex-container > div {
+background-color: white;
+width: 45%;
+height: 550px;
+margin: 5px;
+text-align: left;
+}
+
+.flex-container > #map {
+background-color: #red;
+width: 45%;
+height: 550px;
+margin: 5px;
+text-align: center;
+flex: 4;
+margin-left: 15px;
+margin-right: 15px;
+margin-top: 100px;
+margin-bottom: 100px;
+}
+
+#liste {
+  font-size: 15px;
+  background-color: orange;
+  flex: 2;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  overflow: auto;
+
+}
+
+.link {
+  font-size: 15px;
+  background-color: red;
+  color: white;
+  width: 100%
+}
+
+#favorittlekeplass {
+
+  background-color: cyan;
+  flex: 1;
+  margin-left: 5px;
+  margin-right: 50px;
+  margin-top: 100px;
+  height: 100px;
+}
